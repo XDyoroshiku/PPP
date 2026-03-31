@@ -447,7 +447,7 @@ void exercise6()
 	spawn_random_num(target);
 	//cout << "Random letters is ready!" << '\n';
 
-	leak_answer(target);
+	//leak_answer(target);
 
 	print_introduction();
 

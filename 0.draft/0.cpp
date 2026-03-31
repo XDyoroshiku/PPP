@@ -1,18 +1,16 @@
-import std;
+module PPP;
 
 using namespace std;
+using namespace PPP;
 
 int main()
 {
-    while (cin)
+    string previous;
+    string current;
+    while (cin >> current)
     {
-        char ch;
-        cin.get(ch);
-        if (ch == '\n')
-            cout << "find a \\n";
-        if (ch == ' ')
-            cout << "find a whitespace.";
-        if (isspace(ch))
-            cout << " That's a space." << '\n';
+        if (previous == current)
+            cout << "repeated word: " << current << "\n";
+        previous = current;
     }
 }

@@ -15,7 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="0.cpp">
+    <ClCompile Include="7.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="7.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="PPP.ixx">
