@@ -1,6 +1,23 @@
+# Visual Studio
 .vs/
-*vcxproj.user
+*.user
+*.suo
+*.sdf
+*.opensdf
+*.vcxproj.user
 
-x64/
+# 编译输出
 Debug/
 Release/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+
+# 编译产物
+*.exe
+*.dll
+*.lib
+*.pdb
+*.ilk
+*.exp
