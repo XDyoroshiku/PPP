@@ -30,6 +30,10 @@
   <Project Path="10/10.vcxproj" Id="773840e4-9882-4a92-91ab-e3708ef977ca">
     <Platform Project="x64" />
   </Project>
+  <Project Path="10_backup/10_backup.vcxproj">
+    <Platform Project="x64" />
+  </Project>
+  <Project Path="10_using_fltk/10_using_fltk.vcxproj" Id="9b6c47df-6672-4020-8c04-6dfde116bb60" />
   <Project Path="11/11.vcxproj" Id="47bba45d-f890-4e91-84d0-6a74e84070d1" />
   <Project Path="12/12.vcxproj" Id="53d7076f-0ace-4e22-8451-5a8dae2dc143" />
   <Project Path="13/13.vcxproj" Id="427580f9-4bc8-42e0-8e9f-941377db53e6" />
