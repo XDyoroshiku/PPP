@@ -1,3 +1,5 @@
+// Origin source:https://github.com/villevoutilainen/ProgrammingPrinciplesAndPracticeUsingQt
+
 #include "PPP/Window.h"
 #include "PPP/Graph.h"
 #include "PPP/Simple_window.h"

@@ -2,6 +2,7 @@
 #include "PPP/Graph.h"
 
 using namespace Graph_lib;
+
 int main(int /*argc*/, char* /*argv*/[])
 {
     Application app;

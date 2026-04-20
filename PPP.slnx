@@ -27,6 +27,9 @@
   <Project Path="08/08.vcxproj" Id="1627dc3b-e32c-4a81-a4aa-34a1a0c6e41a" />
   <Project Path="09.drill/09.drill.vcxproj" Id="d1e2409e-a219-4f6e-b503-fe4e40c3ae8d" />
   <Project Path="09/09.vcxproj" Id="90792160-3a18-429d-9c96-7d19ee71fbb2" />
+  <Project Path="10.drill/10.drill.vcxproj" Id="cd8a586f-ba68-41ad-bcd7-b3855c9e402c">
+    <Platform Project="x64" />
+  </Project>
   <Project Path="10/10.vcxproj" Id="773840e4-9882-4a92-91ab-e3708ef977ca">
     <Platform Project="x64" />
   </Project>

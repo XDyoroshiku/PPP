@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Programming_Qt VERSION 0.1 LANGUAGES CXX)
+project(10.drill)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
