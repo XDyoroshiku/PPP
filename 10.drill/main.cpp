@@ -87,7 +87,7 @@ int main(int /*argc*/, char* /*argv*/[])
     win.set_label("Bold text");
     win.wait_for_button();
 
-    Image scream_cat{ Point{350, 50}, "The Scream(Cat Version).png" };
+    Image scream_cat{ Point{350, 50}, "The Cat Scream.png" };
     scream_cat.scale(100, 100);
     win.attach(scream_cat);
     win.set_label("Scream_cat");

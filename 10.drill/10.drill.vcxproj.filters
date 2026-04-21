@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="pat.jpg" />
-    <Image Include="The Scream(Cat Version).png" />
+    <Image Include="The Cat Scream.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
