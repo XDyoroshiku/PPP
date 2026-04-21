@@ -1,8 +1,0 @@
-E:/Projects/Visual Studio/PPP/10/build/Desktop_Qt_6_11_0_MSVC2022_64bit-Debug/CMakeFiles/Programming_Qt.dir
-E:/Projects/Visual Studio/PPP/10/build/Desktop_Qt_6_11_0_MSVC2022_64bit-Debug/CMakeFiles/edit_cache.dir
-E:/Projects/Visual Studio/PPP/10/build/Desktop_Qt_6_11_0_MSVC2022_64bit-Debug/CMakeFiles/rebuild_cache.dir
-E:/Projects/Visual Studio/PPP/10/build/Desktop_Qt_6_11_0_MSVC2022_64bit-Debug/CMakeFiles/list_install_components.dir
-E:/Projects/Visual Studio/PPP/10/build/Desktop_Qt_6_11_0_MSVC2022_64bit-Debug/CMakeFiles/install.dir
-E:/Projects/Visual Studio/PPP/10/build/Desktop_Qt_6_11_0_MSVC2022_64bit-Debug/CMakeFiles/install/local.dir
-E:/Projects/Visual Studio/PPP/10/build/Desktop_Qt_6_11_0_MSVC2022_64bit-Debug/CMakeFiles/Programming_Qt_autogen_timestamp_deps.dir
-E:/Projects/Visual Studio/PPP/10/build/Desktop_Qt_6_11_0_MSVC2022_64bit-Debug/CMakeFiles/Programming_Qt_autogen.dir
