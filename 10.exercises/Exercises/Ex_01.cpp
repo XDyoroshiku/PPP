@@ -1,6 +1,3 @@
-// Draw a rectangle as a Rectangle and as a Polygon. 
-// Make the lines of the Polygon red and the lines of the Rectangle blue.
-
 #include "Exercises.h"
 #include "PPP/Simple_window.h"
 
