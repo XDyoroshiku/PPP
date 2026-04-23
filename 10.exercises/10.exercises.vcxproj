@@ -100,18 +100,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Colormap.cpp" />
-    <ClCompile Include="Exercises\Ex_01.cpp" />
-    <ClCompile Include="Exercises\Ex_02.cpp" />
-    <ClCompile Include="Exercises\Ex_03.cpp" />
-    <ClCompile Include="Exercises\Ex_04.cpp" />
-    <ClCompile Include="Exercises\Ex_05.cpp" />
-    <ClCompile Include="Exercises\Ex_06.cpp" />
-    <ClCompile Include="Exercises\Ex_07.cpp" />
-    <ClCompile Include="Exercises\Ex_08.cpp" />
-    <ClCompile Include="Exercises\Ex_09.cpp" />
-    <ClCompile Include="Exercises\Ex_10.cpp" />
-    <ClCompile Include="Exercises\Ex_11.cpp" />
-    <ClCompile Include="Exercises\Ex_12.cpp" />
+    <ClCompile Include="exercises\Ex_01.cpp" />
+    <ClCompile Include="exercises\Ex_02.cpp" />
+    <ClCompile Include="exercises\Ex_03.cpp" />
+    <ClCompile Include="exercises\Ex_04.cpp" />
+    <ClCompile Include="exercises\Ex_05.cpp" />
+    <ClCompile Include="exercises\Ex_06.cpp" />
+    <ClCompile Include="exercises\Ex_07.cpp" />
+    <ClCompile Include="exercises\Ex_08.cpp" />
+    <ClCompile Include="exercises\Ex_09.cpp" />
+    <ClCompile Include="exercises\Ex_10.cpp" />
+    <ClCompile Include="exercises\Ex_11.cpp" />
+    <ClCompile Include="exercises\Ex_12.cpp" />
     <ClCompile Include="PPP.ixx" />
     <ClCompile Include="Simple_window.cpp" />
     <ClCompile Include="Window.cpp" />
