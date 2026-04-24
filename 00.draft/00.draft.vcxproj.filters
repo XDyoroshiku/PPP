@@ -21,8 +21,5 @@
     <ClCompile Include="00.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="calculator.ixx">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
