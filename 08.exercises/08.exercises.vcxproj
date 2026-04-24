@@ -130,14 +130,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="08.exercises.ixx" />
-    <ClCompile Include="Ex_02.ixx">
+    <ClCompile Include="exercises\Ex_02.ixx">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Default</CompileAs>
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PPP.ixx" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Ex_02.txt" />
+    <Text Include="exercises\Ex_02.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

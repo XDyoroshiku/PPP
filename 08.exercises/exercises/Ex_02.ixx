@@ -28,7 +28,7 @@ private:
 
 void Name_pairs::read_names()
 {
-	string iname = "Ex_02.txt";
+	string iname = "exercises/Ex_02.txt";
 	ifstream ifs{ iname };
 	if (!ifs)
 		PPP::error("can't open input file", iname);

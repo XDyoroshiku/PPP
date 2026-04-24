@@ -21,7 +21,7 @@
     <ClCompile Include="PPP.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Ex_02.ixx">
+    <ClCompile Include="exercises\Ex_02.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="08.exercises.ixx">
@@ -29,6 +29,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Ex_02.txt" />
+    <Text Include="exercises\Ex_02.txt" />
   </ItemGroup>
 </Project>
