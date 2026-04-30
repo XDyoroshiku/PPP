@@ -120,7 +120,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Exercises.h" />
+    <ClInclude Include="10.exercises.h" />
     <ClInclude Include="PPP.h" />
     <ClInclude Include="PPP\Graph.h" />
     <ClInclude Include="PPP\GUI.h" />

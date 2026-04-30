@@ -1,6 +1,6 @@
 #include "PPP/Simple_window.h"
 #include "PPP/Graph.h"
-#include "Exercises.h"
+#include "10.exercises.h"
 #include "PPP.h"
 
 using namespace Graph_lib;
