@@ -36,6 +36,9 @@
   <Project Path="10/10.vcxproj" Id="773840e4-9882-4a92-91ab-e3708ef977ca">
     <Platform Project="x64" />
   </Project>
+  <Project Path="11.drill/11.drill.vcxproj">
+    <Platform Project="x64" />
+  </Project>
   <Project Path="11/11.vcxproj" Id="78fba444-8e58-4415-8b6d-694ce8a9c2bb">
     <Platform Project="x64" />
   </Project>
