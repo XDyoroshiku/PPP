@@ -5,6 +5,7 @@ import Ex_05;
 using namespace std;
 
 export void Ex_06();
+export bool operator==(const Book& b1, const Book& b2);
 export ostream& operator<<(ostream& os, const Book& book);
 
 bool operator==(const Book& b1, const Book& b2)

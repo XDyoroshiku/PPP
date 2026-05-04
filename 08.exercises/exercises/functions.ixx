@@ -1,10 +1,10 @@
 export module functions;
 
-export double get_double();
-export int get_digit(int num);
-
 import PPP;
 using namespace std;
+
+export double get_double();
+export int get_digit(int num);
 
 // 跳过输入中不是数的部分。
 void skip_to_double()
@@ -47,3 +47,8 @@ int get_digit(int num)
 		num /= 10;
 	return digit;
 }
+
+
+
+
+

@@ -6,4 +6,6 @@ export import Ex_04;
 export import Ex_05;
 export import Ex_06;
 export import Ex_07;
+export import Ex_08;
+export import Ex_09;
 
