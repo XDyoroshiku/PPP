@@ -25,7 +25,7 @@ ostream& operator<<(ostream& os, const ISBN& isbn)
 
 const vector<string> genre{ "fiction", "nonfiction", "periodical", "biography", "children" };
 
-string genre_to_string(Genre g)
+string genre_to_string(const Genre& g)
 // 返回Genre类型值对应的字符串。
 {
 	int int_genre = PPP::narrow_cast<int>(g);
@@ -50,9 +50,9 @@ ostream& operator<<(ostream& os, const Book& book)
 
 void Ex_06()
 {
-	Book b1("Programming:principles and practice using C++", "Bjarne Stroustrup", 2014, ISBN(0, 321, 99278, '4'), Genre::nonfiction);
+	Book b1("Programming:principles and practice using C++", "Bjarne Stroustrup", 2014, ISBN("0-321-99278-4"), Genre::nonfiction);
 	cout << b1 << '\n';
-	Book b2("A Tour of C++", "Bjarne Stroustrup", 2023, ISBN(0, 13, 681648, '7'), Genre::nonfiction);
+	Book b2("A Tour of C++", "Bjarne Stroustrup", 2023, ISBN("0-13-681648-7"), Genre::nonfiction);
 	b2.check_out();
 	cout << b2 << '\n';
 }

@@ -12,14 +12,13 @@ import PPP;
 import functions;
 using namespace std;
 
-class ISBN
+class ISBN					// 成员不能为int类型，因为某部分可能为0开头：08919
 {
 public:
-	ISBN(int, int, int, char);
-	bool valid();
-	int get_group() const { return group; }
-	int get_publisher() const { return publisher; }
-	int get_title() const { return title; }
+	ISBN(const string&);
+	string get_group() const { return group; }
+	string get_publisher() const { return publisher; }
+	string get_title() const { return title; }
 	char get_check() const { return check; }
 	bool operator==(const ISBN& other) const
 	{ 
@@ -27,72 +26,101 @@ public:
 	}
 	string string_ISBN() const;
 private:
-	int group;
-	int publisher;
-	int title;
+	string group;
+	string publisher;
+	string title;
 	char check;
+
+	bool valid_digits() const;
+	bool valid_check() const;
 };
 
-ISBN::ISBN(int g, int p, int t, char c):group(g), publisher(p), title(t), check(c)
+ISBN::ISBN(const string& s)
 {
-	if (!valid())
-		PPP::error("Invalid ISBN: " + string_ISBN());
+	istringstream is{ s };
+	constexpr char hyphen = '-';
+	char ch = '?';
+	int count_hyphen = 0;
+	// read in group
+	while (is.get(ch))
+	{
+		if (ch == hyphen)
+			++count_hyphen;
+		else
+		{
+			switch (count_hyphen)
+			{
+			case 0:
+				group.push_back(ch);
+				break;
+			case 1:
+				publisher.push_back(ch);
+				break;
+			case 2:
+				title.push_back(ch);
+				break;
+			case 3:
+				check = ch;
+				++count_hyphen;
+				break;
+			default:
+				break;
+			}
+		}
+	}
+	if (count_hyphen != 4)
+		PPP::error("ISBN format error: ", s);
+	if (!valid_digits() || !valid_check())
+		PPP::error("Invalid ISBN: " + s);
 }
 
-string ISBN::string_ISBN() const
-// 以字符串的形式输出ISBN的所有信息
+bool ISBN::valid_digits() const
+// 检验ISBN各部分字段的有效性。
 {
-	return 	to_string(group) + '-' +
-			to_string(publisher) + '-' +
-			to_string(title) + '-' +
-			check;			// check本身就是字符，不需要to_string
-}
-
-bool ISBN::valid()
-// 检验ISBN的有效性。
-{
-	int group_digit = get_digit(group);
-	int publisher_digit = get_digit(publisher);
-	int title_digit = get_digit(title);
-
 	constexpr int gmax = 5;				// group的最大有效位数。
 	constexpr int pmin = 2;				// publisher的最小有效位数。
 	constexpr int pmax = 7;				// publisher的最大有效位数。
 	constexpr int tmax = 6;				// title的最大有效位数。
-	constexpr int valid_digits = 10;	// ISBN的有效位数
+	constexpr int valid_digits = 10;	// ISBN的有效位数。
+	const int group_digit = PPP::narrow_cast<int>(group.size());			// group的总位数。
+	const int publisher_digit = PPP::narrow_cast<int>(publisher.size());	// publisher的总位数。
+	const int title_digit = PPP::narrow_cast<int>(title.size());			// title的总位数。
 
+	// 检验各部分的字符是否都是'0'到'9'的数字。
+	if (!is_integer(group))
+		return false;
+	if (!is_integer(publisher))
+		return false;
+	if (!is_integer(title))
+		return false;
+	// 检验各部分位数是否在有效范围内。
 	if (gmax < group_digit)
 		return false;
 	if (publisher_digit < pmin || pmax < publisher_digit)
 		return false;
 	if (tmax < title_digit)
 		return false;
+	// 检验前三部分的总位数是否是9。
 	if ((group_digit + publisher_digit + title_digit) != valid_digits - 1)
 		return false;
-	if (!(('0' <= check && check <= '9') || check == 'X'))
-		PPP::error("The check digit of " + string_ISBN() + " should be a character between '0' and '9' or 'X'.");
+	// 检验校验位。
+	if (!(('0' <= check && check <= '9') || check == 'X'))				//校验位为0到9的数字或X。
+		return false;
+	return true;
+}
 
-	// 计算并检验ISBN的有效位：
-	int multiplier = 2;
+bool ISBN::valid_check() const
+// 检验校验位是否正确。
+{
+	int multiplier = 10;
 	int sum = 0;
-
-	// 从低位到高位。每次对10取模，获得最低位的数；再乘以权重。
-	for (int i = title; i > 0; i /= 10)
+	// 从高位到低位，每位乘以权重，加入sum。
+	string gpt = group + publisher + title;
+	for (char x : gpt)
 	{
-		sum += (i % 10) * multiplier;
-		++multiplier;
+		sum += PPP::narrow_cast<int>(x - '0') * multiplier;
+		--multiplier;
 	}
-	for (int i = publisher; i > 0; i /= 10)
-	{
-		sum += (i % 10) * multiplier;
-		++multiplier;
-	}
-	for (int i = group; i > 0; i /= 10)
-	{
-		sum += (i % 10) * multiplier;
-		++multiplier;
-	}
-
 	char check_digit;
 	const int int_check = 11 - sum % 11;
 	switch (int_check)
@@ -112,6 +140,15 @@ bool ISBN::valid()
 	return true;
 }
 
+string ISBN::string_ISBN() const
+// 以字符串的形式输出ISBN的所有信息
+{
+	return 	group + '-' +
+		publisher + '-' +
+		title + '-' +
+		check;
+}
+
 enum class Genre
 {
 	fiction, nonfiction, periodical, biography, children
@@ -121,10 +158,10 @@ class Book
 {
 public:
 	Book(string, string, int, ISBN, Genre);
-	ISBN get_ISBN() const { return isbn; }
 	string get_title() const { return title; }
 	string get_author() const { return author; }
 	int get_copyright_date() const { return copyright_date; }
+	ISBN get_ISBN() const { return isbn; }
 	Genre get_genre() const { return genre; }
 	bool is_checked_out() const { return checked_out; }
 	void check_in() { checked_out = false; }				// 还书
@@ -159,10 +196,10 @@ Book::Book(string t, string a, int cd, ISBN isbn, Genre g): title{t}, author{a},
 
 void Ex_05()
 {
-	Book b1("Programming:principles and practice using C++", "Bjarne Stroustrup", 2014, ISBN(0, 321, 99278, '4'), Genre::nonfiction);
+	Book b1("Programming:principles and practice using C++", "Bjarne Stroustrup", 2014, ISBN("0-321-99278-4"), Genre::nonfiction);
 	cout << b1.is_checked_out() << '\n';
 	b1.check_out();
 	cout << b1.is_checked_out() << '\n';
-	Book b2("A Tour of C++", "Bjarne Stroustrup", 2023, ISBN(0, 13, 681648, '8'), Genre::nonfiction);				// The correct check digit should be '7'.
-	//Book b3("Flatland", "Edwin A.Abbott", 2006, ISBN(0, 19, 280598, 3), Genre::fiction);
+	//Book b2("A Tour of C++", "Bjarne Stroustrup", 2023, ISBN("0-13-681648-8"), Genre::nonfiction);				// The correct check digit should be '7'.
+	Book b3("Flatland", "Edwin A.Abbott", 2006, ISBN("0-19-280598-3"), Genre::fiction);
 }

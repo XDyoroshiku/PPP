@@ -19,12 +19,23 @@ using namespace std;
 
 export void Ex_09();
 
+enum class Operation { check_out, check_in };
+const vector<string> operation{ "check_out", "check_in" };
+
+string operation_to_string(Operation o)
+// 返回opration类型对应的字符串
+{
+	int int_operation = PPP::narrow_cast<int>(o);
+	return operation[int_operation];
+}
+
 struct Transaction
 {
-	Transaction(Book b, Patron p, Date d) : book{ b }, patron{ p }, date{ d } {}
 	Book book;
 	Patron patron;
 	Date date;
+	Operation operation;
+	Transaction(Book b, Patron p, Date d, Operation o) : book{ b }, patron{ p }, date{ d }, operation{ o } {}
 };
 
 class Library
@@ -33,6 +44,7 @@ public:
 	void add_Book(const Book&);
 	void add_Patron(const Patron&);
 	void check_book_out(const Patron&, const Book&);
+	void check_book_in(const Patron&, const Book&);
 	vector<Patron> users_owe_fees() const;
 private:
 	vector<Book> books;
@@ -47,7 +59,7 @@ bool Library::registered_patron(const Patron& p) const
 // 检验用户是否在图书馆注册
 {
 	int p_number = p.get_number();
-	for (Patron x : patrons)
+	for (const Patron& x : patrons)
 	{
 		if (x.get_number() == p_number)
 			return true;
@@ -104,11 +116,52 @@ void Library::check_book_out(const Patron& p, const Book& b)
 	// 借出书
 	books[sub].check_out();
 	// 添加交易记录
-	Transaction t{ b, p, get_today() };
+	Transaction t{ b, p, get_today(), Operation::check_out };
 	transactions.push_back(t);
+}
+
+void Library::check_book_in(const Patron& p, const Book& b)
+{
+	// 检验顾客是否在图书馆注册。
+	if (!registered_patron(p))
+		PPP::error("The patron \"" + p.get_name() + "\" is not in the library.");
+	// 遍历所有的书
+	const int sub = search_book(b);
+	// 遍历数组后没找到相同的书
+	if (sub == -1)
+		PPP::error("The book \"" + b.get_title() + "\" is not in the library.");
+	// 书未被借出
+	if (!books[sub].is_checked_out())
+		PPP::error("Error: The book \"" + b.get_title() + "\" has been not checked out.");
+	// 还书
+	books[sub].check_in();
+	// 添加交易记录
+	Transaction t{ b, p, get_today(), Operation::check_in };
+	transactions.push_back(t);
+}
+
+vector<Patron> Library::users_owe_fees() const
+// 返回所有欠费的顾客。
+{
+	vector<Patron> debtor;
+	for (const Patron& x : patrons)
+	{
+		if (x.owes_a_fee())
+			debtor.push_back(x);
+	}
+	return debtor;
 }
 
 void Ex_09()
 {
+	Book b1("Programming:principles and practice using C++", "Bjarne Stroustrup", 2014, ISBN("0-321-99278-4"), Genre::nonfiction);
+	Book b2("A Tour of C++", "Bjarne Stroustrup", 2023, ISBN("0-13-681648-7"), Genre::nonfiction);
+	Book b3("Flatland", "Edwin A.Abbott", 2006, ISBN("0-19-280598-3"), Genre::fiction);
+	Book b4("The Call of the Wild", "Jack London", 2006, ISBN("1-56254-888-3"), Genre::children);
+	Book b5("Guide to Special Issues and Indexes of Periodicals", "Miriam Uhlan ", 1985, ISBN("0-87111-263-9"), Genre::periodical);
+	Book b6("Caught in the Web of Words", "K.M.Elisabeth Murray", 2001, ISBN("0-300-08919-8"), Genre::biography);
+
+	Library lib;
+	//lib.add_Book();
 
 }
