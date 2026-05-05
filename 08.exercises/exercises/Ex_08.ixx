@@ -11,6 +11,7 @@ using namespace std;
 
 export void Ex_08();
 export class Patron;
+export ostream& operator<<(ostream& os, const Patron& p);
 
 class Patron
 {
@@ -18,7 +19,7 @@ public:
 	Patron(string, int, double);
 	string get_name() const { return name; }
 	int get_number() const { return number; }
-	int get_fees() const { return fees; }
+	double get_fees() const { return fees; }
 	void set_fees(int f) { fees = f; }
 	bool owes_a_fee() const { return fees < 0; }
 private:
@@ -37,12 +38,20 @@ Patron::Patron(string s, int num, double f = 0) : name{ s }, number{ num }, fees
 		PPP::error("Bad number");
 }
 
+ostream& operator<<(ostream& os, const Patron& p)
+{
+	return os << "Patron: " 
+		<< "name: " << p.get_name() << '\t'
+		<< "card number: " << p.get_number() << '\t'
+		<< "fees: " << p.get_fees() << '\n';
+}
+
 void Ex_08()
 {
 	Patron p1{ "Huxley", 100001 };
 	p1.set_fees(100);
-	cout << p1.get_name() << '\t' << p1.get_number() << '\t' << p1.get_fees() << '\t' << p1.owes_a_fee() << '\n';
+	cout << p1;
 	Patron p2{ "Orwell", 100002 };
 	p2.set_fees(-100);
-	cout << p2.get_name() << '\t' << p2.get_number() << '\t' << p2.get_fees() << '\t' << p2.owes_a_fee() << '\n';
+	cout << p2;
 }

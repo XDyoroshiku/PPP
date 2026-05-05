@@ -7,6 +7,7 @@ using namespace std;
 export void Ex_06();
 export bool operator==(const Book& b1, const Book& b2);
 export ostream& operator<<(ostream& os, const Book& book);
+export ostream& operator<<(ostream& os, const ISBN& isbn);
 
 bool operator==(const Book& b1, const Book& b2)
 {
@@ -40,11 +41,12 @@ ostream& operator<<(ostream& os, const Genre& g)
 ostream& operator<<(ostream& os, const Book& book)
 {
 	return os
+		<< "Book:" << "\n"
 		<< "title: " << book.get_title() << '\n'
 		<< "author: " << book.get_author() << '\n'
-		<< "copuright_date: " << book.get_copyright_date() << '\n'
+		<< "copuright_date: " << book.get_copyright_date() << '\t'
 		<< "ISBN: " << book.get_ISBN() << '\n'
-		<< "Genre: " << book.get_genre() << '\n'
+		<< "Genre: " << book.get_genre() << '\t' << '\t'
 		<< "checked_out: " << (book.is_checked_out() ? "yes" : "no") << '\n';
 }
 

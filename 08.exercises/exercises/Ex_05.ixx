@@ -3,14 +3,14 @@
 
 export module Ex_05;
 
+import PPP;
+import functions;
+using namespace std;
+
 export void Ex_05();
 export class Book;
 export class ISBN;
 export enum class Genre;
-
-import PPP;
-import functions;
-using namespace std;
 
 class ISBN					// 成员不能为int类型，因为某部分可能为0开头：08919
 {
@@ -41,34 +41,31 @@ ISBN::ISBN(const string& s)
 	constexpr char hyphen = '-';
 	char ch = '?';
 	int count_hyphen = 0;
-	// read in group
-	while (is.get(ch))
-	{
+	while (is.get(ch)){
 		if (ch == hyphen)
 			++count_hyphen;
-		else
-		{
-			switch (count_hyphen)
-			{
+		else{
+			switch (count_hyphen){
 			case 0:
-				group.push_back(ch);
+				group.push_back(ch);			// read in group
 				break;
 			case 1:
-				publisher.push_back(ch);
+				publisher.push_back(ch);		// read in publisher
 				break;
 			case 2:
-				title.push_back(ch);
+				title.push_back(ch);			// read in title
 				break;
 			case 3:
-				check = ch;
+				check = ch;						// read in check
 				++count_hyphen;
 				break;
-			default:
+			default:		
+				PPP::error("ISBN format error: ", s);
 				break;
 			}
 		}
 	}
-	if (count_hyphen != 4)
+	if(count_hyphen != 4)
 		PPP::error("ISBN format error: ", s);
 	if (!valid_digits() || !valid_check())
 		PPP::error("Invalid ISBN: " + s);

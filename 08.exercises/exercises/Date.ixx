@@ -6,6 +6,7 @@ using namespace std;
 
 export class Date;
 export Date get_today();
+export ostream& operator<<(ostream& os, const Date& d);
 
 // Date class in 8.drill
 class Day

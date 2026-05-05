@@ -38,14 +38,23 @@ struct Transaction
 	Transaction(Book b, Patron p, Date d, Operation o) : book{ b }, patron{ p }, date{ d }, operation{ o } {}
 };
 
+ostream& operator<<(ostream& os, const Transaction& t)
+{
+	return os << t.date << '\n'
+			<< t.patron.get_name() << '\t' << operation_to_string(t.operation) << '\n'
+			<< "Book: " << t.book.get_ISBN() << '\t' << t.book.get_title() << '\n';
+}
+
 class Library
 {
 public:
 	void add_Book(const Book&);
 	void add_Patron(const Patron&);
-	void check_book_out(const Patron&, const Book&);
+	void check_book_out(const Patron&, const Book&);			// 订阅制图书馆，借书不扣钱XD
 	void check_book_in(const Patron&, const Book&);
 	vector<Patron> users_owe_fees() const;
+	void print_transactions() const;
+	void print_debtors() const;
 private:
 	vector<Book> books;
 	vector<Patron> patrons;
@@ -138,6 +147,7 @@ void Library::check_book_in(const Patron& p, const Book& b)
 	// 添加交易记录
 	Transaction t{ b, p, get_today(), Operation::check_in };
 	transactions.push_back(t);
+	// 扣费
 }
 
 vector<Patron> Library::users_owe_fees() const
@@ -152,6 +162,26 @@ vector<Patron> Library::users_owe_fees() const
 	return debtor;
 }
 
+void Library::print_transactions() const
+{
+	cout << "Library transactions: " << '\n';
+	for (Transaction x : transactions)
+		cout << x << '\n';
+}
+
+void Library::print_debtors() const
+{
+	vector<Patron> debtors = users_owe_fees();
+	if (debtors.size() == 0)
+		cout << "No one owes a fee. That's good." << '\n';
+	else
+	{
+		cout << "Users who owe a fee to the library: " << '\n';
+		for (Patron x : debtors)
+			cout << x.get_name() << '\t' << x.get_fees() << '\n';
+	}
+}
+
 void Ex_09()
 {
 	Book b1("Programming:principles and practice using C++", "Bjarne Stroustrup", 2014, ISBN("0-321-99278-4"), Genre::nonfiction);
@@ -161,7 +191,33 @@ void Ex_09()
 	Book b5("Guide to Special Issues and Indexes of Periodicals", "Miriam Uhlan ", 1985, ISBN("0-87111-263-9"), Genre::periodical);
 	Book b6("Caught in the Web of Words", "K.M.Elisabeth Murray", 2001, ISBN("0-300-08919-8"), Genre::biography);
 
-	Library lib;
-	//lib.add_Book();
+	Patron p1("Huxley", 100001, 100);
+	Patron p2("Orwell", 100002, -50);
+	Patron p3("Stroustrup", 100003, 0);
+	Patron p4("Follett", 100004, 80);
+	Patron p5("Dawkins", 100005, -10);
 
+	Library lib;
+	lib.add_Book(b1);
+	lib.add_Book(b2);
+	lib.add_Book(b3);
+	lib.add_Book(b4);
+	lib.add_Book(b5);
+	lib.add_Patron(p1);
+	lib.add_Patron(p2);
+	lib.add_Patron(p3);
+	lib.add_Patron(p4);
+	lib.add_Patron(p5);
+
+	lib.check_book_out(p1 ,b1);
+	//lib.check_book_out(p2, b1);
+	lib.check_book_out(p1, b2);
+	//lib.check_book_out(p2, b3);
+	lib.check_book_out(p3, b3);
+	lib.check_book_in(p1, b1);
+	lib.check_book_out(p4, b1);
+	lib.check_book_out(p1, b4);
+
+	lib.print_transactions();
+	lib.print_debtors();
 }
