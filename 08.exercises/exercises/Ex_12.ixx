@@ -5,24 +5,20 @@
 
 export module Ex_12;
 
-import PPP;
+import std;
+import Date;
 using namespace std;
 
-class Year
+export void Ex_12()
 {
-public:
-	Year(int yy) :year{ yy } {}
-private:
-	int year;
-};
-
-class Date
-{
-public:
-	//Date(Year, Month, Day);
-private:
-	long days;
-};
-
-export void Ex_12();
-
+	Date d1{ Year{2026}, Month::May, 06 };
+	cout << d1 << '\n';
+	d1.add_day(10);
+	cout << d1 << '\n';
+	d1.add_day(31);
+	cout << d1 << '\n';
+	d1.add_day(365);
+	cout << d1 << '\n';
+	d1.add_day(1000);
+	cout << d1 << '\n';
+}
