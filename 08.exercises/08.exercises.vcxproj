@@ -130,6 +130,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="08.exercises.ixx" />
+    <ClCompile Include="exercises\Book.ixx" />
     <ClCompile Include="exercises\Date.ixx" />
     <ClCompile Include="exercises\Ex_02.ixx">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Default</CompileAs>
@@ -145,6 +146,8 @@
     <ClCompile Include="exercises\Ex_11.ixx" />
     <ClCompile Include="exercises\Ex_12.ixx" />
     <ClCompile Include="exercises\functions.ixx" />
+    <ClCompile Include="exercises\Library.ixx" />
+    <ClCompile Include="exercises\Patron.ixx" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PPP.ixx" />
   </ItemGroup>

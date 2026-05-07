@@ -200,11 +200,6 @@ ostream& operator<<(ostream& os, const r_date& rd)
 	return os << rd.year << '/' << rd.month << '/' << rd.day;
 }
 
-//string r_date_to_string(const r_date& rd)
-//{
-//	string s = rd.year
-//}
-
 ostream& operator<<(ostream& os, const Date& d)
 {
 	r_date rd = d.get_date();

@@ -132,5 +132,6 @@ void Ex_02()
 	nps.read_ages();
 	nps.print();
 	nps.sort();
+	cout << "Name_pairs after sort: " << '\n';
 	nps.print();
 }

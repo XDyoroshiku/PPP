@@ -63,6 +63,15 @@
     <ClCompile Include="exercises\Ex_12.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="exercises\Book.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="exercises\Patron.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="exercises\Library.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="exercises\Ex_02.txt" />
