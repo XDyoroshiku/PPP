@@ -145,9 +145,11 @@
     <ClCompile Include="exercises\Ex_10.ixx" />
     <ClCompile Include="exercises\Ex_11.ixx" />
     <ClCompile Include="exercises\Ex_12.ixx" />
+    <ClCompile Include="exercises\Ex_13.ixx" />
     <ClCompile Include="exercises\functions.ixx" />
     <ClCompile Include="exercises\Library.ixx" />
     <ClCompile Include="exercises\Patron.ixx" />
+    <ClCompile Include="exercises\Rational.ixx" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PPP.ixx" />
   </ItemGroup>

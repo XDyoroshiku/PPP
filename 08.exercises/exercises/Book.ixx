@@ -34,10 +34,7 @@ private:
 	bool valid_check() const;
 };
 
-enum class Genre
-{
-	fiction, nonfiction, periodical, biography, children
-};
+enum class Genre{ fiction, nonfiction, periodical, biography, children };
 
 class Book
 {
