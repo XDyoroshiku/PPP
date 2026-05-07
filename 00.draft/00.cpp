@@ -3,6 +3,7 @@ using namespace std;
 
 int main()
 {
-	cout << sizeof(int) << '\n'
-		<< sizeof(int&) << '\n';
+	int n = -123;
+	cout << n % 10 << '\n';
+	cout << n % 100 << '\n';
 }

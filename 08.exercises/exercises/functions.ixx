@@ -5,8 +5,10 @@ using namespace std;
 
 export double get_double();
 export int get_digit(int num);
-export int string_to_int(string);
 export bool is_integer(const string&);
+export int string_to_int(string);
+export string int_to_string(int);
+
 
 // 跳过输入中不是数的部分。
 void skip_to_double()
@@ -114,6 +116,30 @@ int string_to_int(string s)
 	// 如果原始字符串第一个为正负号，返回num*sign。
 	else
 		return num * sign;
+}
+
+string int_to_string(int n)
+// 返回与int类型值同样的字符串。字符串的每个元素对应int类型的每位数字
+{
+	const int digits = get_digit(n);
+	string s;
+	if (n < 0)
+	{
+		s.push_back('-');					// 如果是负数，先把负号存入s
+		n = abs(n);
+	}
+	vector<int> num;
+	for (int i = 0; i < digits; ++i)
+	{
+		num.push_back(n % 10);				// 从低位到高位，依次存入n的每一位到num
+		n /= 10;
+	}
+	int num_size = PPP::narrow_cast<int>(num.size());
+	for (int i = num_size - 1; -1 < i; --i)
+	{
+		s.push_back(num[i] + '0');			// 从num的末尾到开头，以n的高位到低位的顺序，依次存入n的每一位到s
+	}
+	return s;
 }
 
 
