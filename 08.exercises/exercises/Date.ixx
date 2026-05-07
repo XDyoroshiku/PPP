@@ -10,23 +10,19 @@ export class Date;
 export struct r_date;
 export class Year;
 export enum class Month;
+export enum class Week;
 export Date get_today();
+export Date next_workday(const Date&);
+export int week_of_year(const Date&);
 export bool leapyear(int);
 export ostream& operator<<(ostream& os, const Date& d);
+export ostream& operator<<(ostream& os, const Week w);
 
-
-// 天
-class Day
-{
-public:
-	Day(int dd) : day{ dd } {};
-	int return_day() const { return day; }
-private:
-	int day;
-};
 
 // 周
-enum class Week{ Monday = 1, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
+enum class Week{ Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
+
+const vector<string> week{ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 
 // 月
 enum class Month{ January = 1, February, March, April, May, June, July, August, September, October, November, December };
@@ -40,6 +36,12 @@ public:
 private:
 	int year;
 };
+
+int Week_to_int(Week w)
+// Week类型转换为int类型
+{
+	return static_cast<int>(w);
+}
 
 int Month_to_int(Month m)
 // Month类型转换为int类型（都是数字，只是类型不同）
@@ -98,11 +100,14 @@ public:
 	Date(Year, Month, int);
 	r_date get_date() const;
 	void add_day(int n);
+	Week day_of_week() const { return Week{ (days % 7 + week_zero) % 7 }; }
+	long get_days() const { return days; }
 private:
 	long days;
 
 	static constexpr int year_zero = 1970;			// Day 0: 1970.1.1
 	static constexpr int month_zero = 1;
+	static constexpr int week_zero = 4;				// This day is Thursday.
 	static constexpr int day_zero = 1;
 	long days_before_day0(Year y, Month m, int d) const;	
 	bool is_valid(Year y, Month m, int d) const;
@@ -175,6 +180,11 @@ r_date Date::get_date() const
 
 void Date::add_day(int n){ days += n; }
 
+ostream& operator<<(ostream& os, const Week w)
+{
+	return os << week[Week_to_int(w)];
+}
+
 ostream& operator<<(ostream& os, const Date& d)
 {
 	r_date rd = d.get_date();
@@ -199,5 +209,35 @@ Date get_today()
 
 	//return Date{ Year{year}, int_to_Month(month), day };
 
-	return Date{ Year{2026}, Month::May, 06 };
+	return Date{ Year{2026}, Month::May, 06 };				// 使用固定日期；使用Windows系统，可以通过上面注释的代码获取当前日期。
+}
+
+Date next_workday(const Date& d)
+// 返回下一个工作日
+{
+	Date return_d = d;
+	Week current_week = d.day_of_week();
+	using enum Week;
+	if (current_week == Friday)
+		return_d.add_day(3);		// Friday + 3 Days == Monday
+	else if (current_week == Saturday)
+		return_d.add_day(2);		// Saturday + 2 Days == Monday
+	else
+		return_d.add_day(1);		// (any other day + 1 Day) is still a workday.
+	return return_d;
+}
+
+int week_of_year(const Date& d)
+// 返回：输入日期是当年的第几周
+{
+	constexpr int days_of_a_week = 7;
+	constexpr int weeks_of_a_year = 52;
+	r_date current = d.get_date();
+	Date fdy = { Year{current.year}, Month::January, 01 };		// first day of current year
+	Week w = fdy.day_of_week();									// get what day the first day of current year is
+	int int_w = Week_to_int(w);
+	long days_of_fdfw = fdy.get_days() - int_w;					// get the days of the day of the first week.
+	long past_days = d.get_days() - days_of_fdfw;				// caluculate how many days have passed since the first day of the first week.
+	int week_num = PPP::narrow_cast<int>(past_days / days_of_a_week + 1);		// divide by 7; might return 53.
+	return week_num;
 }
