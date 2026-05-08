@@ -149,6 +149,7 @@
     <ClCompile Include="exercises\Ex_14.ixx" />
     <ClCompile Include="exercises\Ex_15.ixx" />
     <ClCompile Include="exercises\Ex_16.ixx" />
+    <ClCompile Include="exercises\Ex_17_18.ixx" />
     <ClCompile Include="exercises\functions.ixx" />
     <ClCompile Include="exercises\Library.ixx" />
     <ClCompile Include="exercises\Money.ixx" />
