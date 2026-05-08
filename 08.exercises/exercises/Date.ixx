@@ -55,7 +55,7 @@ public:
 	Week day_of_week() const { return Week{ (days % 7 + week_zero) % 7 }; }
 	long get_days() const { return days; }
 private:
-	long days;
+	long int days;
 
 	static constexpr int year_zero = 1970;			// Day 0: 1970.1.1
 	static constexpr int month_zero = 1;
