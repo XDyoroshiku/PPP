@@ -13,9 +13,9 @@ using namespace std;
 export void Ex_08()
 {
 	Patron p1{ "Huxley", 100001 };
-	p1.set_fees(100);
+	p1.set_fees(Money{ 100 });
 	cout << p1;
 	Patron p2{ "Orwell", 100002 };
-	p2.set_fees(-100);
+	p2.set_fees(Money{ -100 });
 	cout << p2;
 }

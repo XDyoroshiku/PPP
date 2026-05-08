@@ -10,6 +10,12 @@ using namespace std;
 
 export void Ex_14()
 {
-	Money m1(-1.05);
-	cout << m1;
+	using enum Currency;
+	Money m1(-1.055);
+	Money m2(2.333);
+	cout << "m1 = " << m1 << '\n'
+		<< "m2 = " << m2 << '\n'
+		<< "(m1 == m2)? " << (m1 == m2 ? "yes" : "no") << '\n'
+		<< "m1 + m2 = " << m1 + m2 << '\n'
+		<< "m1 - m2 = " << m1 - m2 << '\n';
 }

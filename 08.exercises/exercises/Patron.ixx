@@ -1,5 +1,6 @@
 export module Patron;
 
+import Money;
 import PPP;
 using namespace std;
 
@@ -12,13 +13,13 @@ public:
 	Patron(string, int, double);
 	string get_name() const { return name; }
 	int get_number() const { return number; }
-	double get_fees() const { return fees; }
-	void set_fees(int f) { fees = f; }
-	bool owes_a_fee() const { return fees < 0; }
+	Money get_fees() const { return fees; }
+	void set_fees(Money f) { fees = f; }
+	bool owes_a_fee() const { return fees.get_cents() < 0; }
 private:
 	string name;
 	int number;
-	double fees;
+	Money fees;
 };
 
 Patron::Patron(string s, int num, double f = 0) : name{ s }, number{ num }, fees{ f }
