@@ -39,7 +39,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="myfile.log" />
-    <Text Include="09_9_readings_output.txt" />
     <Text Include="09_9_readings.txt" />
     <Text Include="09_3_temperature_readings_output.txt" />
     <Text Include="09_3_temperature_readings.txt" />

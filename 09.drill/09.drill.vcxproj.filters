@@ -18,13 +18,13 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Dr_01_07.ixx">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="PPP.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="09.drill.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="drill\Test_output.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

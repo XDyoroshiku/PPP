@@ -1,3 +1,3 @@
 export module drill;
 
-export import Dr_01_07;
+export import Test_output;

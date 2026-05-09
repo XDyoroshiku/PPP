@@ -5,7 +5,7 @@ int main()
 {
 	try
 	{
-		Dr_01_07();
+		Test_output();
 
 		return 0;
 	}
