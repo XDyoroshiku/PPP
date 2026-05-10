@@ -6,8 +6,8 @@ using namespace std;
 export void Test_output()
 {
 	constexpr int birth_year = 2003;
-	cout << "deciml: " << birth_year << '\t'
+	cout << showbase << "deciml: "  << birth_year << '\t'
 		<< "heximal: " << hex << birth_year << '\t'
 		<< "octal: " << oct << birth_year << '\n';
-	cout << "age: " << 23 << '\n';
+	cout << "age: " << dec << 23 << '\n';
 }

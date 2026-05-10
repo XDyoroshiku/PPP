@@ -5,7 +5,11 @@ int main()
 {
 	try
 	{
-		Test_output();
+		//Test_output();
+		//Dr_08();
+		//Dr_09();
+		//Dr_10();
+		Dr_11();
 
 		return 0;
 	}

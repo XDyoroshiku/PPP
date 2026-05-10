@@ -227,7 +227,7 @@ void read_format()
 	cout << "read " << ys.size() << " years of readings" << "\n";
 
 	//for (Year& y : ys)
-	//	print_year(ofs, y);			//	We leave print_year() as an exercise.
+	//	print_year(ofs, y);			//	  We leave print_year() as an exercise.
 }
 
 void _9_9()
