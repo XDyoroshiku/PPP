@@ -4,10 +4,8 @@ using namespace std;
 
 int main()
 {
-	istream& is;
-	string s;
-	for (int i = 0; i < 3; ++i)
-	{
-		s.push_back(is.get());
-	}
+	const int not_a_reading = -7777;
+	vector<double> temp = vector<double>(24, not_a_reading);
+	for (double x : temp)
+		cout << x << '\n';
 }

@@ -48,6 +48,7 @@ struct Year
 istream& operator>>(istream& is, Reading& r)
 // read a temperature reading from is into r. format:( 3 4 9.7 )
 // check format, but don’t bother with data validity
+// 读取的最小单元。Month和Year的读取都建立在这之上
 {
 	char ch1;
 	if (is >> ch1 && ch1 != '(')
@@ -90,9 +91,13 @@ istream& operator>>(istream& is, Month& m)
 	{
 		if (is_valid(r))
 		{
-			if (m.day[r.day].hour[r.hour] != not_a_reading)
+			if (m.day[r.day].hour[r.hour] != not_a_reading)			
+				// 根据reading的day和hour在m的days数组里查找
+				// 如果值不是not_a_reading，说明已经往这个元素输入过reading了，这说明有重复项
 				++duplicates;
-			m.day[r.day].hour[r.hour] = r.temperature;
+			m.day[r.day].hour[r.hour] = r.temperature;			
+			// 这里只存了reading结构的temperature，
+			// 因为其day和hour项已经分别通过temperature存在数组month和day中的位置体现出来了。
 		}
 		else
 			++invalids;
@@ -222,7 +227,7 @@ void read_format()
 	cout << "read " << ys.size() << " years of readings" << "\n";
 
 	//for (Year& y : ys)
-	//	print_year(ofs, y);			//see exercises
+	//	print_year(ofs, y);			//	We leave print_year() as an exercise.
 }
 
 void _9_9()
