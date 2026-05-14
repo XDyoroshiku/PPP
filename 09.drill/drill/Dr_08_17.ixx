@@ -1,4 +1,4 @@
-export module Dr_08;
+export module Dr_08_17;
 
 import PPP;
 using namespace std;
@@ -86,6 +86,81 @@ ostream& operator<<(ostream& os, Point p)
 export void Dr_11()
 {
 	Point p1;
-	cin >> p1;
-	cout << p1;
+	if(cin >> p1)
+		cout << p1;
+}
+
+bool operator==(Point p1, Point p2)
+{
+	if (p1.x != p2.x || p1.y != p2.y)
+		return false;
+	return true;
+}
+
+bool operator!=(Point p1, Point p2)
+{
+	return !(p1 == p2);
+}
+
+void fill_from_file(vector<Point>& points, string& name)
+{
+	ifstream ist{ name };                  // open file for reading
+	if (!ist)
+		PPP::error("can't open input file ", name);
+
+	for (Point p; ist >> p;)
+		points.push_back(p);
+}
+
+export void Dr_12_17()
+{
+	cout << "Please enter input file name with seven (x, y) pairs." << '\n';
+	string iname;
+	cin >> iname;				// drill/Dr_12_input.txt
+	ifstream ist{ iname };
+	if (!ist)
+		PPP::error("can't opern input file ", iname);
+	
+	vector<Point> original_points;
+	fill_from_file(original_points, iname);
+
+	for (Point x : original_points)
+		cout << x << '\n';
+
+	cout << "Please enter name of output file: " << '\n';
+	string oname;
+	cin >> oname;				// drill/mydata.txt
+	ofstream ost{ oname };
+	if (!ost)
+		PPP::error("can't open output file ", oname);
+
+	for (Point p : original_points)
+		ost << '(' << p.x << ',' << p.y << ")\n";
+	cout << "data were put in file: " << oname << '\n';
+	//ost.close();
+
+	ifstream ist2{ oname };
+	if (!ist2)
+		PPP::error("can't open input file ", oname);
+
+	vector<Point> processed_points;
+	fill_from_file(processed_points, oname);
+
+	cout << "data elements in vector original_points: " << '\n';
+	for (Point x : original_points)
+		cout << x << '\n';
+	cout << "data elements in vector processed_points: " << '\n';
+	for (Point x : processed_points)
+		cout << x << '\n';
+	
+	if (original_points.size() != processed_points.size())
+		PPP::error("Something's wrong!");
+	else
+	{
+		for (size_t i = 0; i < original_points.size(); ++i)
+		{
+			if (original_points[i] != processed_points[i])
+				PPP::error("Something's wrong!");
+		}
+	}
 }

@@ -129,13 +129,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="09.drill.ixx" />
-    <ClCompile Include="drill\Dr_08.ixx" />
+    <ClCompile Include="drill\Dr_08_17.ixx" />
     <ClCompile Include="drill\Test_output.cpp">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCppModule</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCppModule</CompileAs>
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PPP.ixx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="drill\Dr_12_input.txt" />
+    <Text Include="drill\mydata.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -27,8 +27,12 @@
     <ClCompile Include="drill\Test_output.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="drill\Dr_08.ixx">
+    <ClCompile Include="drill\Dr_08_17.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="drill\Dr_12_input.txt" />
+    <Text Include="drill\mydata.txt" />
   </ItemGroup>
 </Project>
