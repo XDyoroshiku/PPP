@@ -144,6 +144,7 @@
     <ClCompile Include="exercises\Ex_02.ixx" />
     <ClCompile Include="exercises\Ex_03.ixx" />
     <ClCompile Include="exercises\Ex_04.ixx" />
+    <ClCompile Include="exercises\Ex_05.ixx" />
     <ClCompile Include="exercises\functions.ixx" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PPP.ixx" />
