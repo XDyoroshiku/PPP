@@ -40,7 +40,7 @@ static constexpr int hexadecimal = 2;
 static constexpr int octal = 1;
 static constexpr int decimal = 0;
 
-int decide_prefix(const string& s)
+int determine_prefix(const string& s)
 // 根据字符串的进制前缀返回不同的值。
 // 无前缀返回0；
 // 0前缀返回1；
@@ -64,7 +64,7 @@ int decide_prefix(const string& s)
 base_num get_base_num(const string& s)
 // 返回base_num类型
 {
-	int int_base = decide_prefix(s);
+	int int_base = determine_prefix(s);
 
 	const string num = s.substr(int_base);		// 获取字符串不包括进制前缀的数字部分
 	istringstream is{ num };
@@ -95,7 +95,7 @@ ostream& operator<<(ostream& os, const base_num& bn)
 
 void Ex_04()
 // 输入字符串
-// 输入字符，判断是否是前缀+数字的形式
+// 判断是否是前缀+数字的形式
 // 是：转换成自定义类型存入数组（进制+字符串+值）；不是：重新输入
 // 输出自定义类型数组
 {
