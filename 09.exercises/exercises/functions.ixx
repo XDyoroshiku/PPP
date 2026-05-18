@@ -78,4 +78,3 @@ bool find_word(const string& word, const string& s)
 	}
 	return false;
 }
-

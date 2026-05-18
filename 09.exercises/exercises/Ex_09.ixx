@@ -1,4 +1,6 @@
-// 写一个处理由空格分隔的字符串的函数，返回一个包含其子字符串的数组
+// 写一个处理由空格分隔的字符串的函数：
+// vector<string> split(const string& s)，
+// 返回一个包含其子字符串的数组
 
 export module Ex_09;
 

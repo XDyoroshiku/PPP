@@ -18,4 +18,4 @@ I slept at Baker Street that night, and we were engaged upon our toast and coffe
 
 "Really, Watson, you excel yourself," said Holmes, pushing back his chair and lighting a cigarette.
 
-"- don't use the as-if rule." becomes "do not use the as-if rule ".
+For example, "- don't use the as-if rule." becomes "do not use the as-if rule ".

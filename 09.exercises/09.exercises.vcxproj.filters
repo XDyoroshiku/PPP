@@ -48,6 +48,12 @@
     <ClCompile Include="exercises\Ex_09.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="exercises\Ex_10.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="exercises\Ex_11.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="exercises\Ex_01_input.txt" />
