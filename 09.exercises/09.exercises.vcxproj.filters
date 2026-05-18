@@ -42,11 +42,15 @@
     <ClCompile Include="exercises\Ex_05.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="exercises\Ex_06_08.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="exercises\Ex_01_input.txt" />
     <Text Include="exercises\Ex_01_output.txt" />
     <Text Include="exercises\Ex_02_input.txt" />
     <Text Include="exercises\Ex_03.txt" />
+    <Text Include="exercises\Ex_06_08.txt" />
   </ItemGroup>
 </Project>
