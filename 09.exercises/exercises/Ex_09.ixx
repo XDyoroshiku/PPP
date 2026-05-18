@@ -7,7 +7,7 @@ export module Ex_09;
 import PPP;
 using namespace std;
 
-vector<string> split(const string& s)
+export vector<string> split(const string& s)
 {
 	vector<string> substrings;
 	istringstream iss{ s };
