@@ -50,7 +50,8 @@ string edit_sentence(const string& s)
 		sentence.append(x);
 		sentence.append(" ");
 	}
-	sentence.erase(sentence.end());
+	if (!sentence.empty())
+		sentence.pop_back();
 	return sentence;
 }
 

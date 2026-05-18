@@ -9,3 +9,4 @@ export import Ex_06_08;
 export import Ex_09;
 export import Ex_10;
 export import Ex_11;
+export import Ex_12;

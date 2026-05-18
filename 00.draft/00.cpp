@@ -4,7 +4,8 @@ using namespace std;
 
 int main()
 {
-	string s;
-	cout << s[0];
-
+	string s = "hahasb";
+	cout << s << '\n';
+	s.pop_back();
+	cout << s << '\n';
 }

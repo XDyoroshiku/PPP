@@ -54,6 +54,9 @@
     <ClCompile Include="exercises\Ex_11.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="exercises\Ex_12.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="exercises\Ex_01_input.txt" />
@@ -61,5 +64,6 @@
     <Text Include="exercises\Ex_02_input.txt" />
     <Text Include="exercises\Ex_03.txt" />
     <Text Include="exercises\Ex_06_08.txt" />
+    <Text Include="exercises\Ex_12.txt" />
   </ItemGroup>
 </Project>
