@@ -2,10 +2,10 @@
 
 export module Ex_16;
 
-import <climits>;
 import functions;
 import PPP;
 using namespace std;
+#define INT_MAX     2147483647
 
 int get_sum(vector<int> ints)
 {
