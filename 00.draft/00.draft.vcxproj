@@ -25,6 +25,9 @@
     </ClCompile>
     <ClCompile Include="PPP.ixx" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="00.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

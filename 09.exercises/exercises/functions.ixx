@@ -6,6 +6,7 @@ using namespace std;
 export void fill_from_file(vector<char>& chars, const string& fname);
 export void fill_from_file(vector<string>& strings, const string& fname);
 export void fill_from_file(vector<double>& doubles, const string& fname);
+export void fill_from_file(vector<int>& integers, const string& fname);
 export void output_to_file(const vector<char>& chars, const string& fname);
 export bool find_word(const string& word, const string& s);
 
@@ -55,6 +56,19 @@ void fill_from_file(vector<double>& doubles, const string& fname)
 
 	for (double x; ist >> x; )
 		doubles.push_back(x);
+
+	ist_state(ist);
+}
+
+void fill_from_file(vector<int>& integers, const string& fname)
+// 依次读取文件中的浮点数，存入数组
+{
+	ifstream ist{ fname };
+	if (!ist)
+		PPP::error("can't open file " + fname);
+
+	for (int x; ist >> x; )
+		integers.push_back(x);
 
 	ist_state(ist);
 }

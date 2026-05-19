@@ -1,11 +1,15 @@
 import <climits>;
 import PPP;
 using namespace std;
+const string fname = "00.txt";
 
 int main()
 {
-	string s = "hahasb";
-	cout << s << '\n';
-	s.pop_back();
-	cout << s << '\n';
+	ifstream ifs{ fname };
+	int x;
+	ifs >> x;
+	if (!ifs)
+		cout << "Error!" << '\n';
+	else
+		cout << x;
 }
