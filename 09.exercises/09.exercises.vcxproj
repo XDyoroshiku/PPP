@@ -151,6 +151,7 @@
     <ClCompile Include="exercises\Ex_11.ixx" />
     <ClCompile Include="exercises\Ex_12.ixx" />
     <ClCompile Include="exercises\Ex_13.ixx" />
+    <ClCompile Include="exercises\Ex_14.ixx" />
     <ClCompile Include="exercises\functions.ixx" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PPP.ixx" />
@@ -162,6 +163,7 @@
     <Text Include="exercises\Ex_03.txt" />
     <Text Include="exercises\Ex_06_08.txt" />
     <Text Include="exercises\Ex_12.txt" />
+    <Text Include="exercises\Ex_14_input.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
