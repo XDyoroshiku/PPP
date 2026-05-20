@@ -1,13 +1,9 @@
 export module functions;
 
+import Ex_17;
 import PPP;
 using namespace std;
 
-export struct Reading
-{
-	int hour;
-	double temperature;
-};
 export void fill_from_file(vector<char>& chars, const string& fname);
 export void fill_from_file(vector<string>& strings, const string& fname);
 export void fill_from_file(vector<double>& doubles, const string& fname);
@@ -82,6 +78,7 @@ void fill_from_file(vector<int>& integers, const string& fname)
 }
 
 istream& operator>>(istream& is, Reading& r);
+Reading convert_c_to_f(Reading r);
 
 void fill_from_file(vector<Reading>& readings, const string& fname)
 // 依次读取文件中的Reading，存入数组
@@ -90,8 +87,14 @@ void fill_from_file(vector<Reading>& readings, const string& fname)
 	if (!ist)
 		PPP::error("can't open file " + fname);
 
+	constexpr int celsius = 0;
+	constexpr int fahrenheit = 1;
 	for (Reading x; ist >> x; )
+	{
+		if (static_cast<int>(x.ts) == celsius)
+			x = convert_c_to_f(x);
 		readings.push_back(x);
+	}
 
 	ist_state(ist);
 }
@@ -134,9 +137,18 @@ istream& operator>>(istream& is, Reading& r)
 {
 	int hour;
 	double temperature;
-	is >> hour >> temperature;
+	char suffix;
+	is >> hour >> temperature >> suffix;
 	if (!is)
 		return is;
-	r = Reading{ hour, temperature };
+
+	r = Reading{ hour, temperature, char_to_suffix(suffix) };
 	return is;
+}
+
+Reading convert_c_to_f(Reading r)
+{
+	r.temperature = c_to_f(r.temperature);
+	r.ts = suffix::f;
+	return r;
 }

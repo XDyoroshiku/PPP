@@ -3,21 +3,22 @@ import PPP;
 using namespace std;
 const string fname = "00.txt";
 
-void ist_state(ifstream& ist)
-// 依次判断ist处于哪种状态，做出相应处理
+enum class suffix
 {
-	if (ist.bad())						// stream corrupted;
-		PPP::error("ist is bad");		// let’s get out of here!
-	if (ist.fail() && !ist.eof())		// clean up the mess as best we can and report the problem
-		PPP::error("ist is fail");
-	if (ist.eof())						// fine: we found the end of file
-		return;
+	c, f		// c代表Celsius；f代表Fahrenheit。
+};
+
+suffix int_to_suffix(int i)
+{
+	constexpr int celsius = 0;
+	constexpr int fahrenheit = 1;
+	if (i != celsius || i != fahrenheit)
+		PPP::error("bad suffix");
+	return suffix(i);
 }
 
 int main()
 {
-	ifstream ifs{ fname };
-	for (int x; ifs >> x; )
-		cout << x << '\n';
-	ist_state(ifs);
+	suffix x = int_to_suffix(3);
+	cout << int(x);
 }

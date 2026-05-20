@@ -2,9 +2,14 @@
 // 把读取的数据存入数组
 // 计算平均温度和温度读数的中位数
 
+// Ex_19
+// 修改Ex_17，温度读数后添加后缀c，代表摄氏度；后缀f，代表华氏摄氏度。
+// 修改Ex_18，测试每个读数，在把读数存入数组前，把摄氏度转换为华氏摄氏度。
+
 export module Ex_18;
 
 import functions;
+import Ex_17;
 import PPP;
 using namespace std;
 
@@ -28,11 +33,15 @@ double get_mean(const vector<Reading>& readings)
 
 double get_median(const vector<Reading>& readings)
 {
-	const int nums = static_cast<int>(readings.size());
+	vector<double> temperatures;
+	for (Reading x : readings)
+		temperatures.push_back(x.temperature);
+	sort(temperatures.begin(), temperatures.end());
+	const int nums = static_cast<int>(temperatures.size());
 	if (nums % 2 == 1)
-		return readings[(nums - 1)/ 2].temperature;
+		return temperatures[(nums - 1)/ 2];
 	else
-		return (readings[nums / 2 - 1].temperature + readings[nums / 2].temperature) / 2;
+		return (temperatures[nums / 2 - 1] + temperatures[nums / 2]) / 2;
 }
 
 void Ex_18()
