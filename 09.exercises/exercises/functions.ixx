@@ -15,7 +15,7 @@ void ist_state(ifstream& ist)
 {
 	if (ist.bad())						// stream corrupted;
 		PPP::error("ist is bad");		// let’s get out of here!
-	if (ist.fail())						// clean up the mess as best we can and report the problem
+	if (ist.fail() && !ist.eof())		// clean up the mess as best we can and report the problem
 		PPP::error("ist is fail");
 	if (ist.eof())						// fine: we found the end of file
 		return;
