@@ -3,12 +3,20 @@ export module functions;
 import PPP;
 using namespace std;
 
+export struct Reading
+{
+	int hour;
+	double temperature;
+};
 export void fill_from_file(vector<char>& chars, const string& fname);
 export void fill_from_file(vector<string>& strings, const string& fname);
 export void fill_from_file(vector<double>& doubles, const string& fname);
 export void fill_from_file(vector<int>& integers, const string& fname);
+export void fill_from_file(vector<Reading>& readings, const string& fname);
 export void output_to_file(const vector<char>& chars, const string& fname);
 export bool find_word(const string& word, const string& s);
+
+
 
 void ist_state(ifstream& ist)
 // 依次判断ist处于哪种状态，做出相应处理
@@ -73,6 +81,21 @@ void fill_from_file(vector<int>& integers, const string& fname)
 	ist_state(ist);
 }
 
+istream& operator>>(istream& is, Reading& r);
+
+void fill_from_file(vector<Reading>& readings, const string& fname)
+// 依次读取文件中的Reading，存入数组
+{
+	ifstream ist{ fname };
+	if (!ist)
+		PPP::error("can't open file " + fname);
+
+	for (Reading x; ist >> x; )
+		readings.push_back(x);
+
+	ist_state(ist);
+}
+
 void output_to_file(const vector<char>& chars, const string& fname)
 // 把数组的内容输出到文件
 {
@@ -105,4 +128,15 @@ bool find_word(const string& word, const string& s)
 			return true;
 	}
 	return false;
+}
+
+istream& operator>>(istream& is, Reading& r)
+{
+	int hour;
+	double temperature;
+	is >> hour >> temperature;
+	if (!is)
+		return is;
+	r = Reading{ hour, temperature };
+	return is;
 }
