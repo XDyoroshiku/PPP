@@ -57,7 +57,11 @@ suffix char_to_suffix(char ch)
 	else if (ch == fahrenheit)
 		return suffix(suffix::f);
 	else
+	{
 		PPP::error("bad char for suffix");
+		return suffix{};
+	}
+	
 }
 
 double get_random_temperature(const double min, const double max)

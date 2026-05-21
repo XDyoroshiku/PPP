@@ -156,11 +156,14 @@
     <ClCompile Include="exercises\Ex_16.ixx" />
     <ClCompile Include="exercises\Ex_17.ixx" />
     <ClCompile Include="exercises\Ex_18.ixx" />
+    <ClCompile Include="exercises\Ex_20.ixx" />
     <ClCompile Include="exercises\functions.ixx" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PPP.ixx" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="exercises\Ex_20_output.txt" />
+    <Text Include="exercises\Ex_20_readings.txt" />
     <Text Include="exercises\Ex_01_input.txt" />
     <Text Include="exercises\Ex_01_output.txt" />
     <Text Include="exercises\Ex_02_input.txt" />

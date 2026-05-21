@@ -1,0 +1,22 @@
+year: 1990
+
+year: 1991
+month: 6
+
+year: 1992
+month: 1
+day: 1	hour: 0	temperature: 61.5
+month: 2
+day: 1	hour: 1	temperature: 64
+day: 2	hour: 2	temperature: 65.2
+
+year: 2000
+month: 2
+day: 1	hour: 0	temperature: 67.2
+day: 1	hour: 1	temperature: 68
+day: 2	hour: 3	temperature: 66.66
+month: 12
+day: 14	hour: 0	temperature: -2
+day: 15	hour: 14	temperature: -8.8
+day: 15	hour: 15	temperature: -9.2
+
