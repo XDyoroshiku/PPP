@@ -5,7 +5,7 @@ export module Ex_22;
 export void Ex_22();
 
 import Ex_21;
-import std;
+import PPP;
 using namespace std;
 
 //继续改进第六章的计算器
@@ -147,12 +147,12 @@ Token Token_stream::get()
             if (s == letkey)
                 //如果s == "let", 创建一个kind等于let的Token。
                 return Token{ let };
-            if (s == sqrtkey)
-                //如果s == "sqrt", 创建一个kind等于square_root的Token。
-                return Token{ square_root };
-            if (s == powkey)
-                //如果s == "pow", 创建一个kind等于pow的Token。
-                return Token{ power };
+            //if (s == sqrtkey)
+            //    //如果s == "sqrt", 创建一个kind等于square_root的Token。
+                //return Token{ square_root };
+            //if (s == powkey)
+            //    //如果s == "pow", 创建一个kind等于pow的Token。
+                //return Token{ power };
             if (s == quitkey)
                 //如果s == "quit", 创建一个kind等于quit的Token。
                 return Token{ quit };
@@ -447,25 +447,26 @@ double expression(Token_stream& ts)         // deal with + and -
 
 void print_help()
 {
-    cout << "This calculator supports '+', '-', '*', '/', '%', '!' operations." << '\n'
-        << "    To calculate, type expressions like '1+2', '8/4', '(11%(1+2)!)' and I'll return their answers." << '\n'
-        << "Functions of sqrt() for square root and pow() for exponentiation are available too." << '\n'
-        << "    To use sqrt(), type sqrt(9) and I'll return the square root of 9 (3)." << '\n'
-        << "    To use pow(), type pow(5, 2) and I'll return x to the power of i (25)." << '\n'
-        << "You can use 'let' to define a variable, as 'let x = {2 * (3 + 4) - 5 / 6};'." << '\n'
-        << "    You can use the variable you have defined in later expressions." << '\n'
-        << "    Examples: 'x', 'x+1', 'x%5', 'sqrt(x-2)', and 'pow(2*x, x)'" << '\n'
-        << "    Special variables like pi = 3.1415926535, e = 2.7182818284 and k = 1000 are already defined in the calculator." << '\n'
-        << "Type a newline (Enter key) to end an expression." << '\n'
-        << "Type 'exit' to exit the program." << '\n';
+    //cout << "This calculator supports '+', '-', '*', '/', '%', '!' operations." << '\n'
+    //    << "    To calculate, type expressions like '1+2', '8/4', '(11%(1+2)!)' and I'll return their answers." << '\n'
+    //    << "Functions of sqrt() for square root and pow() for exponentiation are available too." << '\n'
+    //    << "    To use sqrt(), type sqrt(9) and I'll return the square root of 9 (3)." << '\n'
+    //    << "    To use pow(), type pow(5, 2) and I'll return x to the power of i (25)." << '\n'
+    //    << "You can use 'let' to define a variable, as 'let x = {2 * (3 + 4) - 5 / 6};'." << '\n'
+    //    << "    You can use the variable you have defined in later expressions." << '\n'
+    //    << "    Examples: 'x', 'x+1', 'x%5', 'sqrt(x-2)', and 'pow(2*x, x)'" << '\n'
+    //    << "    Special variables like pi = 3.1415926535, e = 2.7182818284 and k = 1000 are already defined in the calculator." << '\n'
+    //    << "Type a newline (Enter key) to end an expression." << '\n'
+    //    << "Type 'exit' to exit the program." << '\n';
+    cout << "We support calculations for Roman numerals only!" << '\n';
 }
 
 void Ex_22()
 {
-    st.define_name("pi", 3.1415926535);
-    st.define_name("e", 2.7182818284);
-    st.define_name("k", 1000);
-    cout << "Simple Calculator (type 'help' for manual)" << '\n';
+    //st.define_name("pi", 3.1415926535);
+    //st.define_name("e", 2.7182818284);
+    //st.define_name("k", 1000);
+    cout << "Simple Calculator —— Roman_int version (type 'help' for manual)" << '\n';
     Token_stream ts;
     while (cin)
     {
@@ -483,7 +484,7 @@ void Ex_22()
                 continue;
             }
             ts.putback(t);
-            cout << "= " << int_to_Roman(expression(ts)) << '\n';
+            cout << "= " << int_to_Roman(PPP::narrow_cast<int>(expression(ts))) << '\n';
         }
         catch (exception& e)
         {
