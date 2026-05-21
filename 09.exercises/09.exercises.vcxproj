@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="09.exercises.ixx" />
+    <ClCompile Include="exercises\Ex_22.ixx" />
     <ClCompile Include="exercises\Ex_01.ixx" />
     <ClCompile Include="exercises\Ex_02.ixx" />
     <ClCompile Include="exercises\Ex_03.ixx" />

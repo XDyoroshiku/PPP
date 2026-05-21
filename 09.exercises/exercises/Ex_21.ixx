@@ -7,13 +7,14 @@ import PPP;
 using namespace std;
 
 export void Ex_21();
-
-vector<char> Roman_numerals{ 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
+export string get_Roman_numerals(istream& is);
+export class Roman_int;
+export string int_to_Roman(int r);
 
 class Roman_int
 {
 public:
-	//Roman_int(const string& s) : numerals{ s } {};
+	Roman_int(const string& s) : numerals{ s } {};
 	int as_int() const;
 	void set_numerals(const string& s) { numerals = s; }
 	string get_numerals() const { return numerals; }
@@ -105,7 +106,72 @@ ostream& operator<<(ostream& os, const Roman_int& r)
 
 void Ex_21()
 {
-	Roman_int r;
-	cin >> r;
+	string s;
+	cin >> s;
+	Roman_int r{s};
 	cout << r;
+}
+
+string get_Roman_numerals(istream& is)
+{
+	string s;
+	for (char ch; is.get(ch); )
+	{
+		if (!valid_numeral(ch))
+		{
+			is.putback(ch);
+			return s;			// 返回所有是罗马符号的字符
+		}
+		s.push_back(ch);
+	}
+	return s;
+}
+
+string int_to_Roman(int r)
+{
+	static constexpr int M = 1000;
+	static constexpr int D = 500;
+	static constexpr int C = 100;
+	static constexpr int L = 50;
+	static constexpr int X = 10;
+	static constexpr int V = 5;
+	static constexpr int I = 1;
+	string numerals;
+
+	const int m = r / M;
+	for (int i = 0; i < m; ++i)
+		numerals.push_back('M');
+	r %= M;
+
+	const int d = r / D;
+	for (int i = 0; i < d; ++i)
+		numerals.push_back('D');
+	r %= D;
+
+	const int c = r / C;
+	for (int i = 0; i < c; ++i)
+		numerals.push_back('C');
+	r %= C;
+
+	const int l = r / L;
+	for (int i = 0; i < l; ++i)
+		numerals.push_back('L');
+	r %= L;
+
+	const int x = r / X;
+	for (int i = 0; i < x; ++i)
+		numerals.push_back('X');
+	r %= X;
+
+	const int v = r / V;
+	for (int i = 0; i < v; ++i)
+		numerals.push_back('V');
+	r %= V;
+
+	const int ii = r / I;
+	for (int i = 0; i < ii; ++i)
+		numerals.push_back('I');
+	r %= I;
+
+	return numerals;
 }

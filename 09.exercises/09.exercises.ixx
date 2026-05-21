@@ -18,3 +18,4 @@ export import Ex_17;
 export import Ex_18;
 export import Ex_20;
 export import Ex_21;
+export import Ex_22;
