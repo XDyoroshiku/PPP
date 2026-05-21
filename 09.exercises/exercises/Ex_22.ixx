@@ -127,7 +127,7 @@ Token Token_stream::get()
     case '.':
     //case '0': case '1': case '2': case '3': case '4':
     //case '5': case '6': case '7': case '8': case '9':
-    case 'I': case 'V;': case 'X': case 'L': case 'C': case 'D': case 'M':
+    case 'I': case 'V': case 'X': case 'L': case 'C': case 'D': case 'M':
     {
         is.putback(ch);
         string numerals = get_Roman_numerals(is);
