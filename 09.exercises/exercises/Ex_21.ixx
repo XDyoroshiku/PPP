@@ -13,7 +13,7 @@ vector<char> Roman_numerals{ 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
 class Roman_int
 {
 public:
-	Roman_int(const string& s) : numerals{ s } {};
+	//Roman_int(const string& s) : numerals{ s } {};
 	int as_int() const;
 	void set_numerals(const string& s) { numerals = s; }
 	string get_numerals() const { return numerals; }
