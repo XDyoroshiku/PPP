@@ -84,6 +84,9 @@
     <ClCompile Include="exercises\Ex_22.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="exercises\Ex_23.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="exercises\Ex_01_input.txt" />
@@ -98,5 +101,8 @@
     <Text Include="exercises\Ex_17_raw_temps.txt" />
     <Text Include="exercises\Ex_20_readings.txt" />
     <Text Include="exercises\Ex_20_output.txt" />
+    <Text Include="exercises\Ex_23_file1.txt" />
+    <Text Include="exercises\Ex_23_file2.txt" />
+    <Text Include="exercises\Ex_23_output.txt" />
   </ItemGroup>
 </Project>
